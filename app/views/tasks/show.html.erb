@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<strong>Thank You!</strong>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @task.url %>
+</p>
+
+<p>
+  <strong>Words:</strong>
+  <%= @task.words %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @task.email %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @task.completed %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Submit another', new_task_path %>
