@@ -37,11 +37,11 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to @task, flash[:notice] = 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
         format.js   { flash[:notice] = 'Task was successfully created' }
       else
-        format.html { render :new }
+        format.html { render :new, flash[:notice] = 'ERROR: TASK WAS NOT CREATED!' }
         format.json { render json: @task.errors, status: :unprocessable_entity }
         format.js   {}
       end
