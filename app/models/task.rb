@@ -1,6 +1,8 @@
 class Task < ActiveRecord::Base
 	after_create :string_of_keywords_to_array
 
+	validates :url, :words, :email, presence: true
+
 	scope :uncompleted, -> { where(completed: false) }
 
 	def url_check
