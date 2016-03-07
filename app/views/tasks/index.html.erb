@@ -1,15 +1,15 @@
 <% if flash[:notice] %>
-<div id="notice"><%= flash[:notice] %></div>
+  <h2 id="notice"><%= flash[:notice] %></h2>
 <% end %>
 
 <% if flash[:notice].blank? %>
-  <h1> flash hash is blank </h1>
+  <h2> TASK WAS NOT CREATED! </h2>
 <% end %>
 
 <body style="background-color:#419CD9">
-	<div class="text-center">
+	<div class="text-center" style="padding-top:140px">
 		<font color="white"> 
-			<h1>Do You want to submit another task?</h1>
+			<h1>Do You want to submit a task?</h1>
 		</font>
 
 		<%= link_to 'New Task', new_task_path, {:style=>'color:#000000;', :class => "btn btn-default"} %>
