@@ -12,7 +12,7 @@ module UrlChecker
 	private
 
 	def self.html_parser(url)
-		Nokogiri::HTML(open("#{url}").read).to_s
+		Nokogiri::HTML(open("#{url}", :allow_redirections => :safe).read).to_s
 	end
 
 	def self.find_words_in_text(words, text)
