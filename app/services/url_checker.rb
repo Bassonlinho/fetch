@@ -19,7 +19,7 @@ module UrlChecker
 		if words.kind_of?(Array)
 			words.each do |w| 
 				#text.match(/#{w}/) ? true : false
-				if text.include? w
+				if text.downcase.include? w.downcase
 					return true
 					break
 				else
