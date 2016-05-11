@@ -41,6 +41,9 @@ gem 'puma'
 
 gem 'bootstrap-sass'
 
+# OpenURI patch to allow redirections between HTTP and HTTPS
+gem 'open_uri_redirections'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
