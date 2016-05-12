@@ -6,7 +6,13 @@ module UrlChecker
 
 	def self.url_checker(words, url)
 	  	text = html_parser(url)
-	  	find_words_in_text(words, text) ? true : false
+	  	if find_words_in_text(words, text)
+	  		p 'found keywords - true'
+	  		return true
+	  	else
+	  		p 'no keywords found - false'
+	  		return false
+	  	end
 	end
 
 	private
