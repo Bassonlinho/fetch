@@ -1,9 +1,10 @@
 class VisitorMailer < ApplicationMailer
 
-  def contact_email(email)
+  def contact_email(email, url)
     @email = email
+    @url = url
     @message = "Your task is completed"
-    mail(from: 'noreply@check-kolosek.com',
+    mail(from: 'noreply@notify.kolosek.com',
          to: @email,
          subject: 'Your task has been completed')
   end
