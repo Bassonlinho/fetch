@@ -5,14 +5,8 @@ require 'open_uri_redirections'
 module UrlChecker
 
 	def self.url_checker(words, url)
-	  	text = html_parser(url)
-	  	if find_words_in_text(words, text)
-	  		p 'found keywords - true'
-	  		return true
-	  	else
-	  		p 'no keywords found - false'
-	  		return false
-	  	end
+		text = html_parser(url)
+		find_words_in_text(words, text) ? true : false
 	end
 
 	private
@@ -24,7 +18,6 @@ module UrlChecker
 	def self.find_words_in_text(words, text)
 		if words.kind_of?(Array)
 			words.each do |w| 
-				#text.match(/#{w}/) ? true : false
 				if text.downcase.include? w.downcase
 					return true
 					break
@@ -32,18 +25,25 @@ module UrlChecker
 					return false
 				end
 			end
+
 		elsif words.kind_of?(String)
-			p 'on line 40 in url_checker.rb'
-			#text.match(/words/) ? true : false
-			if text.downcase.include? words.downcase
-				p 'on line 43 in url_checker.rb'
+			if words.include? ';'
+				words = words.split(';')
+				words.each do |w|
+					if text.downcase.include? w.downcase.strip
+						return true
+						break
+					else
+						return false
+					end
+				end
+			#case: single word (no ';', not an array)
+			elsif text.downcase.include? words.downcase
 				true
 			else
-				p 'on line 46 in url_checker.rb'
 				false
 			end
 		else
-			p 'on line 50 in url_checker.rb'
 			return true
 		end
 	end	
