@@ -1,17 +1,15 @@
-<% if flash[:notice] %>
-  <h2 id="notice"><%= flash[:notice] %></h2>
-<% end %>
-
-<% if flash[:notice].blank? %>
-  <h2> TASK WAS NOT CREATED! </h2>
-<% end %>
+<div align="center" color="red">
+	<% if flash[:notice].blank? %>
+	  <h2> TASK WAS NOT CREATED! </h2>
+	<% end %>
+</div>
 
 <body style="background-color:#419CD9">
 	<div class="text-center" style="padding-top:140px">
 		<font color="white"> 
-			<h1>Do You want to submit a task?</h1>
+			<h1>Do You want to create a new notification?</h1>
 		</font>
 
-		<%= link_to 'New Task', new_task_path, {style: 'color:#000000;', class: "btn btn-default"} %>
+		<%= link_to 'New Notification', new_task_path, {class: "btn btn-lg btn-success"} %>
 	</div>
 </body>
