@@ -44,7 +44,7 @@ module UrlChecker
 				false
 			end
 		else
-			return true
+			return false
 		end
 	end	
 end
