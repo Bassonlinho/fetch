@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-	after_create :string_of_keywords_to_array
+	before_save :string_of_keywords_to_array, :add_http_to_url
 
 	validates :url, :words, :email, presence: true
 
@@ -19,6 +19,12 @@ class Task < ActiveRecord::Base
 	  	words.strip!
 	  end
 	  words
+	end
+
+	def add_http_to_url
+		unless self.url.match(/^(http|https):\/\//).present?
+			self.url = "http://#{self.url}"
+		end
 	end
 
 end
