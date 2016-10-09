@@ -1,9 +1,14 @@
 class Task < ActiveRecord::Base
 	before_save :string_of_keywords_to_array, :add_http_to_url
-
+	belongs_to :user
 	validates :url, :words, :email, presence: true
 
 	scope :uncompleted, -> { where(completed: false) }
+	
+	scope :email_check, -> (user) {
+    where("tasks.email =  ?", user.email)
+  	}
+
 
 	def url_check
 	  UrlChecker.url_checker(self.words, self.url)

@@ -14,18 +14,18 @@ module UrlChecker
 	def self.html_parser(url)
 		begin
 			Nokogiri::HTML(open("#{url}", :allow_redirections => :safe).read).to_s
-			rescue => e
-      	case e
-      	when OpenURI::HTTPError
-        	p 'OpenURI::HTTPError'
-       	when SocketError
-        	p 'SocketError'
-        when Errno::ENOENT
-        	p 'Errno::ENOENT'
-       	else
-        	raise e
-       	end
-    end
+		rescue => e
+			case e
+			when OpenURI::HTTPError
+				p 'OpenURI::HTTPError'
+			when SocketError
+				p 'SocketError'
+			when Errno::ENOENT
+				p 'Errno::ENOENT'
+			else
+				raise e
+			end
+		end
 	end
 
 	def self.find_words_in_text(words, text)
@@ -51,13 +51,13 @@ module UrlChecker
 					end
 				end
 			#case: single word (no ';', not an array)
-			elsif text.downcase.include? words.downcase
-				true
-			else
-				false
-			end
+		elsif text.downcase.include? words.downcase
+			true
 		else
-			return false
+			false
 		end
-	end	
+	else
+		return false
+	end
+end	
 end

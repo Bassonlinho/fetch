@@ -1,28 +1,46 @@
-<p id="notice"><%= notice %></p>
+<body style="background-color:#419CD9">
+	<div class="text-center" style="padding-top:100px">
 
-<p>
-	<strong>Thank You!</strong>
-</p>
+		<font color="white"> 
+			<h1>Your tracking is now active!</h1>
+			<h2>You'll get notification as soon as Fetch detects a change!</h2>
+		</font>
+		<div class="row">
+			<div class="col-md-3">
+			</div>
 
-<p>
-  <strong>Url:</strong>
-  <%= @task.url %>
-</p>
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<p>
+							<strong>Url:</strong>
+							<%= @task.url %>
+						</p>
 
-<p>
-  <strong>Words:</strong>
-  <%= @task.words %>
-</p>
+						<p>
+							<strong>Words:</strong>
+							<%= @task.words %>
+						</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @task.email %>
-</p>
+						<p>
+							<strong>Email:</strong>
+							<%= @task.email %>
+						</p>
 
-<p>
-  <strong>Completed:</strong>
-  <%= @task.completed %>
-</p>
+						<p>
+							<strong>Completed:</strong>
+							<%= @task.completed %>
+						</p>
+						<%= link_to 'New Notification', root_path, {class: "btn btn-lg btn-success"} %>
+						<% if !user_signed_in? %>
+						<%= link_to 'Register', new_user_registration_path, {class: "btn btn-lg btn-success"} %>
+						<% else %>
+						<%= link_to 'Tasks', tasks_path,{class: "btn btn-lg btn-success"} %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Submit another', new_task_path %>
+</body>

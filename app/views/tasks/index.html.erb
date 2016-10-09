@@ -1,15 +1,32 @@
-<div align="center">
-	<% if flash[:notice].blank? %>
-	  <h2> TASK WAS NOT CREATED! </h2>
-	<% end %>
-</div>
-
 <body style="background-color:#419CD9">
 	<div class="text-center" style="padding-top:140px">
 		<font color="white"> 
-			<h1>Do You want to create a new notification?</h1>
+			<h1>List of your tasks: </h1>
 		</font>
+		<div class="row">
+			<div class="col-md-3">
+			</div>
 
-		<%= link_to 'New Notification', root_path, {class: "btn btn-lg btn-success"} %>
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<% @tasks.each do |task| %>
+						<%= task.url %></td>
+						<%= task.words %></td>
+						<span id="<%= task.id %>"><%= task.completed %></span>
+						<%= link_to('Delete', task_path(task),class: "btn btn-lg btn-warning", :method => :delete) %>
+						<%= form_for task do |t| %>
+						<%= t.check_box :completed %>
+						<%= t.submit "Change", :class => 'task_completed' %> 
+						<% end %>
+						<% end %>
+						<br/>
+						<%= link_to 'New Notification', root_path, {class: "btn btn-lg btn-success"} %>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+
+</div>
 </body>
