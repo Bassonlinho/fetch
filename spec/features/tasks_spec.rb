@@ -7,20 +7,17 @@ describe "Tasks" do
     @user = FactoryGirl.create(:user)
   end
 
- # describe "POST #create" do
-  #  it "creates a task" do
-   #   visit root_path
-   #   save_and_open_page
-    #  fill_in "task_url", :with => @task.url
-    #  fill_in "task_words", :with => @task.words
-    #  fill_in "task_email", :with => @task.email
-
-     # click_button "Start Free Monitoring!"
-     # get task_path('1')
-     # expect(response).to render_template(:show)
-
-    #end
-  #end
+  describe "POST #create" do
+    it "creates a task" do
+      visit root_path
+      save_and_open_page
+      fill_in "task_url", :with => @task.url
+      fill_in "task_words", :with => @task.words
+      fill_in "task_email", :with => @task.email
+      
+      expect{find('.btn-success').click}.to change(Task,:count).by(1)
+    end
+  end
 
   describe "GET #index" do
     it "shows all tasks created by owner user" do
@@ -36,10 +33,18 @@ describe "Tasks" do
       login_as(@user, :scope => :user)
       visit tasks_path
       save_and_open_page
-      check("task_completed")
       find('.task_completed').click
       expect(page).to have_content("true")
     end 
+  end
+
+  describe "GET #show" do
+    it "shows task with certain id" do
+      login_as(@user, :scope => :user)
+      visit task_path(@task)
+      save_and_open_page
+      expect(page).to have_content("Your task tracking is now active!")
+    end
   end
 
   describe "DELETE #destroy" do

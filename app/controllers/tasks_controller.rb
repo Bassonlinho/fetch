@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!,only: [:index]
+  before_action :set_task, only: [:show, :edit, :destroy]
+  before_action :authenticate_user!,only: [:index,:show]
 
   # GET /tasks
   # GET /tasks.json
@@ -31,8 +31,11 @@ class TasksController < ApplicationController
   def edit
   end
 
+  # PUT /tasks/1/update
   def update
-    @task.update(task_params)
+    @task = Task.find(params[:task_id])
+    @task.completed = !@task.completed
+    @task.save
     respond_to do |format|
       format.html {redirect_to tasks_path}
       format.js
@@ -48,9 +51,9 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_path, flash[:notice] = 'Task was successfully created.' }
+        format.html { redirect_to root_path}
         format.json { render :show, status: :created, location: @task }
-        format.js   { flash[:notice] = 'Task was successfully created' }
+        format.js 
       else
         format.html { render :new, flash[:notice] = 'ERROR: TASK WAS NOT CREATED!' }
         format.json { render json: @task.errors, status: :unprocessable_entity }

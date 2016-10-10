@@ -12,7 +12,7 @@
 <% end %>
 
 <div class="text-center" style="padding-top:140px">
-  <div class="container">
+  <div class="container"  id="form">
     <font color="white"> 
       <h1>We monitor webpages, so you don't have to!</h1>
       <h3>Enter the URL of the webpage you want to monitor. We’ll send You an email when we find a keyword</h3>
@@ -45,15 +45,12 @@
             </div>
 
             <div class="actions">
-              <%= f.submit "Start Free Monitoring!", class: "btn btn-lg btn-success" %>
+              <%= f.submit "Submit tracking!", :class => 'btn btn-lg btn-success' %>
             </div>
             <br/>
             <div class="user">
               <% if user_signed_in? %>
-              <%= link_to('Sign out', destroy_user_session_path,class: "btn btn-lg btn-primary", :method => :delete) %>
               <%= link_to('Tasks', tasks_path,class: "btn btn-lg btn-primary") %> 
-              <% else %>
-              <%= link_to "Log in", new_user_session_path,class: "btn btn-lg btn-success" %><br />
               <% end %>
             </div>
           </div>
@@ -69,7 +66,5 @@
 
   </div>
 </div>
-
 </form>
 <% end %>
-

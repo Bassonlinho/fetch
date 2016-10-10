@@ -2,7 +2,7 @@
 	<div class="text-center" style="padding-top:100px">
 
 		<font color="white"> 
-			<h1>Your tracking is now active!</h1>
+			<h1>Your task tracking is now active!</h1>
 			<h2>You'll get notification as soon as Fetch detects a change!</h2>
 		</font>
 		<div class="row">
@@ -31,10 +31,8 @@
 							<strong>Completed:</strong>
 							<%= @task.completed %>
 						</p>
+						<% if user_signed_in? %>
 						<%= link_to 'New Notification', root_path, {class: "btn btn-lg btn-success"} %>
-						<% if !user_signed_in? %>
-						<%= link_to 'Register', new_user_registration_path, {class: "btn btn-lg btn-success"} %>
-						<% else %>
 						<%= link_to 'Tasks', tasks_path,{class: "btn btn-lg btn-success"} %>
 						<% end %>
 					</div>

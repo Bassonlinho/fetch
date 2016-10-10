@@ -54,26 +54,17 @@ gem 'open_uri_redirections'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-group :test do
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
-  gem 'factory_girl_rails'
-  gem 'simplecov', :require => false
-  gem 'simplecov-rcov'
-  gem 'database_cleaner'
-  gem 'selenium-webdriver'
-  gem 'capybara'
-  gem 'capybara-webkit'
-end
-
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails'
-  gem 'capybara'
-  gem 'database_cleaner'
+  gem 'shoulda-matchers'
   gem 'factory_girl_rails'
+  gem 'simplecov', :require => false
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'capybara-webkit'
 end
 
 group :development do

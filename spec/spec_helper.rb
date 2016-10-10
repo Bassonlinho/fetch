@@ -1,12 +1,11 @@
-require 'rubygems'
-require 'sidekiq/testing'
-require 'capybara/rspec'
-
 if ENV['RAILS_ENV'] == 'test'
   require 'simplecov'
   SimpleCov.start 'rails'
   puts "required simplecov"
 end
+require 'rubygems'
+require 'sidekiq/testing'
+require 'capybara/rspec'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
