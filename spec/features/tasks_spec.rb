@@ -34,7 +34,7 @@ describe "Tasks" do
       visit tasks_path
       save_and_open_page
       find('.task_completed').click
-      expect(page).to have_content("true")
+      expect(page).to have_content("Completed")
     end 
   end
 
