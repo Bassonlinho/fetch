@@ -1,13 +1,18 @@
 if ENV['RAILS_ENV'] == 'test'
   require 'simplecov'
-  SimpleCov.start 'rails'
-  puts "required simplecov"
+  SimpleCov.start do
+    add_group 'Controllers', 'app/controllers'
+    add_group 'Models', 'app/models'
+    add_group 'Helpers', 'app/helpers'
+    add_group 'Mailers', 'app/mailers'
+    add_group 'Views', 'app/views'
+  end
 end
-require 'rubygems'
-require 'sidekiq/testing'
-require 'capybara/rspec'
+  require 'rubygems'
+  require 'sidekiq/testing'
+  require 'capybara/rspec'
 
-RSpec.configure do |config|
+  RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

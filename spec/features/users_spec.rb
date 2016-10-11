@@ -7,7 +7,7 @@ describe "Users" do
     @user = FactoryGirl.create(:user)
   end
 
-  describe "GET #new" do
+  describe "GET registrations#new" do
     it "creates a new user" do
       visit new_user_registration_path
       save_and_open_page
@@ -26,6 +26,16 @@ describe "Users" do
       save_and_open_page
       find('.btn-primary').click
       expect(page).to have_content("Signed out successfully.")
+    end
+  end
+
+  describe "GET sessions#new" do
+    it "creates new session for user" do
+      visit new_user_session_path
+      fill_in "user_email", :with => @user.email
+      fill_in "user_password", :with => @user.password  
+      find('.btn-primary').click
+      expect(page).to have_content("Signed in successfully.")
     end
   end
   

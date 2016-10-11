@@ -5,12 +5,25 @@ class Task < ActiveRecord::Base
 
 	scope :uncompleted, -> { where(completed: false) }
 	
-	scope :email_check, -> (user) {
+	scope :task_email_check, -> (user) {
 		where("tasks.email =  ?", user.email)
 	}
 
-	def task_check
+	def task_status
 		completed ? 'Completed' : 'Monitoring'
+	end
+
+	def task_status_change
+		self.completed = !self.completed
+	end
+
+	def active!
+		
+	end
+
+	def deactivate!
+		
+		
 	end
 	
 	def url_check

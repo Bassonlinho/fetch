@@ -31,10 +31,8 @@
 							<strong>Completed:</strong>
 							<%= @task.completed %>
 						</p>
-						<% if user_signed_in? %>
 						<%= link_to 'New Notification', root_path, {class: "btn btn-lg btn-success"} %>
 						<%= link_to 'Tasks', tasks_path,{class: "btn btn-lg btn-success"} %>
-						<% end %>
 					</div>
 				</div>
 			</div>

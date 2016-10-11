@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.email_check(current_user)
+    @tasks = Task.task_email_check(current_user)
   end
 
   # GET /tasks/1
@@ -34,10 +34,10 @@ class TasksController < ApplicationController
   # PUT /tasks/1/update
   def update
     @task = Task.find(params[:task_id])
-    @task.completed = !@task.completed
+    @task.task_status_change
     @task.save
     respond_to do |format|
-      format.html {redirect_to tasks_path}
+      format.html {redirect_to tasks_path,notice: 'Task status successfully changed!'}
       format.js
       format.json {render json: @task}
     end

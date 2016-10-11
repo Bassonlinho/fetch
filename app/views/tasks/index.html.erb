@@ -6,46 +6,14 @@
 		<div class="row">
 			<div class="col-md-3">
 			</div>
-
 			<div class="col-md-6">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<table class="table table-bordered">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th style="text-align:center;">Url</th>
-									<th style="text-align:center;">Words</th>
-									<th style="text-align:center;">Status</th>
-									<th style="text-align:center;">Delete</th>
-									<th style="text-align:center;"></th>
-								</tr>
-							</thead>
-							<tbody>
-								<% @tasks.each do |task| %>
-								<tr>
-									<th scope="row"><%= task.id %></th>
-									<td><%= task.url %></td>
-									<td><%= task.words %></td>
-									<td id="<%= task.id %>"><%=task.task_check%></td>
-									<td><%= button_to('Delete', task_path(task),:method => :delete) %></td>
-									<% if task.completed == false %>
-									<td><%= button_to('On',task_update_path(task),:method => :put,:class => 'task_completed' )%></td>
-									<% else %>
-									<td><%= button_to('Off',task_update_path(task),:method =>:put,:class => 'task_not_completed') %></td>
-								</tr>
-								<% end %>
-								<% end %>
-							</tbody>
-						</table>
-						<br/>
-						<%= link_to 'New Notification', root_path, {class: "btn btn-lg btn-success"} %>
-						<%= link_to('Sign out', destroy_user_session_path,class: "btn btn-lg btn-primary", :method => :delete) %>
+					<%= render 'tasks_index' %>	
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </div>
 </body>

@@ -1,8 +1,8 @@
 FactoryGirl.define do
 	factory :task do
-		url "http://google.com"
+		url "www.google.com"
 		words "john doe"
 		email "johndoe@hotmail.com"
-		completed "false"
+		completed "true"
 	end
 end
