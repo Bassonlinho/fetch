@@ -1,16 +1,17 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :destroy]
+  before_action :authenticate_user!,only: [:index,:show]
 
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.task_email_check(current_user)
   end
 
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-      respond_to do |format|
+    respond_to do |format|    
       format.js        
       format.html
     end
@@ -20,7 +21,7 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
 
-      respond_to do |format|
+    respond_to do |format|
       format.js
       format.html
     end
@@ -30,6 +31,19 @@ class TasksController < ApplicationController
   def edit
   end
 
+  # PUT /tasks/1/update
+  def update
+    @task = Task.find(params[:task_id])
+    @task.task_status_change
+    @task.save
+    respond_to do |format|
+      format.html {redirect_to tasks_path,notice: 'Task status successfully changed!'}
+      format.js
+      format.json {render json: @task}
+    end
+  end
+
+
   # POST /tasks
   # POST /tasks.json
   def create
@@ -37,9 +51,9 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, flash[:notice] = 'Task was successfully created.' }
+        format.html { redirect_to root_path}
         format.json { render :show, status: :created, location: @task }
-        format.js   { flash[:notice] = 'Task was successfully created' }
+        format.js 
       else
         format.html { render :new, flash[:notice] = 'ERROR: TASK WAS NOT CREATED!' }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -53,7 +67,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to tasks_path, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -68,4 +82,6 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:url, :words, :email, :completed)
     end
-end
+
+
+  end

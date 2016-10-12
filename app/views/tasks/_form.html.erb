@@ -10,9 +10,13 @@
   </ul>
 </div>
 <% end %>
-
-<div class="text-center" style="padding-top:140px">
-  <div class="container">
+<div class="text-center" style="padding-top:100px">
+  <div class="container"  id="form">
+    <div style="margin-top:-50px; float: right" class="user">
+      <% if user_signed_in? %>
+      <%= link_to('Dashboard', tasks_path,class: "btn btn-lg btn-primary") %>
+      <% end %>
+    </div>
     <font color="white"> 
       <h1>We monitor webpages, so you don't have to!</h1>
       <h3>Enter the URL of the webpage you want to monitor. We’ll send You an email when we find a keyword</h3>
@@ -45,13 +49,13 @@
             </div>
 
             <div class="actions">
-              <%= f.submit "Start Free Monitoring!", class: "btn btn-lg btn-success" %>
+              <%= f.submit "Submit tracking!", :class => 'btn btn-lg btn-success' %>
             </div>
-
+            <br/>
+          
           </div>
         </div>
       </div>
-
       <div class="col-md-3">
       </div>
     </div>
@@ -61,7 +65,5 @@
 
   </div>
 </div>
-
 </form>
 <% end %>
-
