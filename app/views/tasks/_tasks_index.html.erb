@@ -19,11 +19,11 @@
       <td><%= button_to('Delete', task_path(task),:method => :delete,:class =>'delete') %></td>
       <% if task.active? %>
       <td>
-        <%= button_to('Off',task_inactive_path(task),:method => :put,:class => 'task_inactive')%>
+        <%= button_to('Off',inactive_task_path(task),:method => :put,:class => 'task_inactive')%>
       </td>
       <% else %>
       <td>
-      <%= button_to('On',task_active_path(task),:method => :put,:class => '
+      <%= button_to('On',active_task_path(task),:method => :put,:class => '
         task_active')%>
       </td>
       <% end %>

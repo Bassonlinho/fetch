@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :destroy,:update]
+  before_action :set_task, only: [:show, :edit, :destroy,:update,:active,:inactive]
   before_action :authenticate_user!,only: [:index,:show]
 
   # GET /tasks
@@ -32,7 +32,6 @@ class TasksController < ApplicationController
   end
 
   def active
-    @task = Task.find(params[:task_id])
     @task.active!
     respond_to do |format|
       format.html {redirect_to tasks_path,notice: 'Your task is now active!'}
@@ -42,7 +41,6 @@ class TasksController < ApplicationController
   end
 
   def inactive
-    @task = Task.find(params[:task_id])
     @task.inactive!
     respond_to do |format|
       format.html {redirect_to tasks_path,notice: 'Your task is now inactive!'}

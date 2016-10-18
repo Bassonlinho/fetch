@@ -54,7 +54,7 @@ describe "Tasks" do
       login_as(@user, :scope => :user)
       visit task_path(@task)
       save_and_open_page
-      expect(page).to have_content("Your task tracking is now active!")
+      expect(page).to have_content("Task details")
     end
   end
 
