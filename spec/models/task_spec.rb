@@ -5,7 +5,7 @@ describe Task do
   it { should have_db_column(:url).of_type(:string) }
   it {should have_db_column(:words).of_type(:string)}
   it {should have_db_column(:email).of_type(:string)}
-  it {should have_db_column(:completed).of_type(:boolean)}
+  it {should have_db_column(:status).of_type(:integer)}
   it {should have_db_column(:created_at).of_type(:datetime)}
   it {should have_db_column(:updated_at).of_type(:datetime)}
 
@@ -34,13 +34,17 @@ describe Task do
     end
   end
 
-  describe ".task_status_change" do
-    it "returns true if task is completed" do
-      expect(@task.task_status_change).to be true
+  describe "Status" do
+    it "changes tasks status to inactive" do
+      @task.inactive!
+      expect(@task.status).to be 3
+    end
+    it "changes tasks status to active" do
+      @task.status = 3
+      @task.active!
+      expect(@task.status).to be 1
     end
   end
-
-
 
   describe ".add_http_to_url" do
     it "adds http to url if not present" do

@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :destroy]
+  before_action :set_task, only: [:show, :edit, :destroy,:update]
   before_action :authenticate_user!,only: [:index,:show]
 
   # GET /tasks
@@ -31,13 +31,31 @@ class TasksController < ApplicationController
   def edit
   end
 
+  def active
+    @task = Task.find(params[:task_id])
+    @task.active!
+    respond_to do |format|
+      format.html {redirect_to tasks_path,notice: 'Your task is now active!'}
+      format.json {render json: @task}
+      format.js
+    end
+  end
+
+  def inactive
+    @task = Task.find(params[:task_id])
+    @task.inactive!
+    respond_to do |format|
+      format.html {redirect_to tasks_path,notice: 'Your task is now inactive!'}
+      format.json {render json: @task}
+      format.js
+    end
+  end
+
   # PUT /tasks/1/update
   def update
-    @task = Task.find(params[:task_id])
-    @task.task_status_change
-    @task.save
+    @task.update(task_params)
     respond_to do |format|
-      format.html {redirect_to tasks_path,notice: 'Task status successfully changed!'}
+      format.html {redirect_to tasks_path,notice: 'Task successfully updated!'}
       format.js
       format.json {render json: @task}
     end
@@ -80,7 +98,7 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:url, :words, :email, :completed)
+      params.require(:task).permit(:url, :words, :email, :status)
     end
 
 

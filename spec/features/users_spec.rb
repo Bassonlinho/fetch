@@ -3,7 +3,6 @@ require 'rails_helper'
 describe "Users" do
 
   before :each do
-    @task = FactoryGirl.create(:task)
     @user = FactoryGirl.create(:user)
   end
 

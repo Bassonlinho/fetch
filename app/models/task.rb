@@ -3,27 +3,38 @@ class Task < ActiveRecord::Base
 	belongs_to :user
 	validates :url, :words, :email, presence: true
 
-	scope :uncompleted, -> { where(completed: false) }
 	
 	scope :task_email_check, -> (user) {
 		where("tasks.email =  ?", user.email)
 	}
 
-	def task_status
-		completed ? 'Completed' : 'Monitoring'
-	end
+	STATUS_ACTIVE = 1.freeze
+	STATUS_COMPLETED = 2.freeze
+	STATUS_INACTIVE = 3.freeze
 
-	def task_status_change
-		self.completed = !self.completed
+	STATUSES = {
+		STATUS_ACTIVE => 'Active',
+		STATUS_COMPLETED => 'Completed',
+		STATUS_INACTIVE => 'Inactive'
+	}
+	
+
+	def status_name
+		STATUSES[status]
 	end
 
 	def active!
-		
+		self.status = STATUS_ACTIVE
+		save!
 	end
 
-	def deactivate!
-		
-		
+	def active?
+		self.status == STATUS_ACTIVE
+	end
+
+	def inactive!
+		self.status = STATUS_INACTIVE
+		save!
 	end
 	
 	def url_check

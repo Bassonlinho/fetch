@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration
       t.string :url
       t.string :words
       t.string :email
-      t.boolean :completed, :default => 'false'
+      t.integer :status, :limit => 1, :default => 1, :null => false
 
       t.timestamps null: false
     end

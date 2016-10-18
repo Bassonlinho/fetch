@@ -4,6 +4,7 @@ describe "Tasks" do
 
   before :each do
     @task = FactoryGirl.create(:task)
+    @task1 = FactoryGirl.create(:task,status: 3)
     @user = FactoryGirl.create(:user)
   end
 
@@ -28,15 +29,25 @@ describe "Tasks" do
   end
 
 
-  describe "PUT #update" do
-    it "changes tasks completed status" do
+  describe "PUT #inactive" do
+    it "changes tasks status to inactive" do
       login_as(@user, :scope => :user)
       visit tasks_path
       save_and_open_page
-      find('.task_completed').click
-      expect(page).to have_content("Completed")
+      find('.task_inactive').click
+      expect(page).to have_content("Inactive")
     end 
   end
+
+  describe "PUT #active" do
+    it "changes tasks status to active" do
+      login_as(@user, :scope => :user)
+      visit tasks_path
+      save_and_open_page
+      find('.task_active').click
+      expect(page).to have_content("Active")
+    end 
+  end  
 
   describe "GET #show" do
     it "shows task with certain id" do
@@ -52,7 +63,7 @@ describe "Tasks" do
       login_as(@user, :scope => :user)
       visit tasks_path
       save_and_open_page
-      click_on 'Delete'
+      first('.delete').click
       expect(page).to have_content("Task was successfully destroyed.")
     end
   end

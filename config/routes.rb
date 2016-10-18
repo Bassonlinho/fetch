@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 	devise_for :users, controllers: { registrations: "registrations" }
 	resources :tasks do
-		put "update"
+		put "active"
+		put "inactive"
 	end
 	root 'tasks#new'
 end
