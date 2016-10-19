@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.task_email_check(current_user)
+    @tasks = Task.task_email_check(current_user).decorate
   end
 
   # GET /tasks/1

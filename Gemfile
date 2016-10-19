@@ -18,6 +18,8 @@ gem 'whenever', :require => false
 
 gem 'devise'
 
+gem 'draper'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 

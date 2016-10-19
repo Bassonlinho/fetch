@@ -34,11 +34,14 @@ describe Task do
     end
   end
 
-  describe "Status" do
+  describe ".inactive!" do
     it "changes tasks status to inactive" do
       @task.inactive!
       expect(@task.status).to be 3
     end
+  end
+  
+  describe ".active!" do
     it "changes tasks status to active" do
       @task.status = 3
       @task.active!
@@ -50,6 +53,21 @@ describe Task do
     it "adds http to url if not present" do
       @task.url = "google.com"
       expect{@task.add_http_to_url}.to change(@task,:url).from("google.com").to("http://google.com")
+    end
+
+    it "adds http to url if url starts with www" do
+      @task.url = "www.google.com"
+      expect{@task.add_http_to_url}.to change(@task,:url).from("www.google.com").to("http://www.google.com")
+    end
+
+    it "validates url if url starts with http" do
+      @task.url = "http://www.google.com"
+      expect{@task.add_http_to_url}.not_to change(@task,:url)
+    end
+
+    it "validates url if url starts with https" do
+      @task.url = "https://www.google.com"
+      expect{@task.add_http_to_url}.not_to change(@task,:url)
     end
   end
   
