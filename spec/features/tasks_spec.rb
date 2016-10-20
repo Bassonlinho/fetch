@@ -35,7 +35,7 @@ describe "Tasks" do
       visit tasks_path
       save_and_open_page
       find('.task_inactive').click
-      expect(page).to have_content("Inactive")
+      expect(page).to have_content("Your task is now inactive!")
     end 
   end
 
@@ -45,7 +45,7 @@ describe "Tasks" do
       visit tasks_path
       save_and_open_page
       find('.task_active').click
-      expect(page).to have_content("Active")
+      expect(page).to have_content("Your task is now active!")
     end 
   end  
 

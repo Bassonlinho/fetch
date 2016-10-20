@@ -2,14 +2,11 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :destroy,:update,:active,:inactive]
   before_action :authenticate_user!,only: [:index,:show]
 
-  # GET /tasks
-  # GET /tasks.json
+
   def index
-    @tasks = Task.task_email_check(current_user).decorate
+    @tasks = Task.email_check(current_user).decorate
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.json
   def show
     respond_to do |format|    
       format.js        
@@ -17,7 +14,7 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /tasks/new
+
   def new
     @task = Task.new
 
@@ -27,7 +24,7 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /tasks/1/edit
+
   def edit
   end
 
@@ -49,7 +46,7 @@ class TasksController < ApplicationController
     end
   end
 
-  # PUT /tasks/1/update
+
   def update
     @task.update(task_params)
     respond_to do |format|
@@ -60,8 +57,6 @@ class TasksController < ApplicationController
   end
 
 
-  # POST /tasks
-  # POST /tasks.json
   def create
     @task = Task.new(task_params)
 
@@ -78,8 +73,7 @@ class TasksController < ApplicationController
     end
   end
 
-  # DELETE /tasks/1
-  # DELETE /tasks/1.json
+
   def destroy
     @task.destroy
     respond_to do |format|
@@ -89,12 +83,12 @@ class TasksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_task
       @task = Task.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def task_params
       params.require(:task).permit(:url, :words, :email, :status)
     end

@@ -8,6 +8,8 @@ describe Task do
   it {should have_db_column(:status).of_type(:integer)}
   it {should have_db_column(:created_at).of_type(:datetime)}
   it {should have_db_column(:updated_at).of_type(:datetime)}
+  it {should have_db_column(:deleted_at).of_type(:datetime)}
+  it {should have_db_index(:deleted_at)}
 
   before :each do
     @task = FactoryGirl.create(:task)

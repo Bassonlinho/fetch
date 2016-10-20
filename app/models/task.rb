@@ -1,10 +1,11 @@
 class Task < ActiveRecord::Base
+	acts_as_paranoid
 	before_save :string_of_keywords_to_array, :add_http_to_url
 	belongs_to :user
 	validates :url, :words, :email, presence: true
 
 	
-	scope :task_email_check, -> (user) {
+	scope :email_check, -> (user) {
 		where("tasks.email =  ?", user.email)
 	}
 
