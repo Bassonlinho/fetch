@@ -1,10 +1,10 @@
 class UserMailer < ActionMailer::Base
 
   # This method receives the data from the sucker punch job.
-  def registration(user)
-    @user = user
+  def registration(email)
+    @email = email
 
-    mail to: @user.email,
+    mail to: @email,
          subject: 'Welcome!',
          from: 'noreply@notify.kolosek.com'
   end

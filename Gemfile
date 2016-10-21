@@ -18,6 +18,9 @@ gem 'whenever', :require => false
 
 gem 'devise'
 
+gem 'activeadmin', github: 'activeadmin'
+
+
 gem 'draper'
 
 gem "paranoia", "~> 2.0"
