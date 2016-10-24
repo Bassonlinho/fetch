@@ -8,7 +8,7 @@ describe RegistrationJob, job: true do
 
 		it "delivers an email" do
 			expect {
-				RegistrationJob.new.perform(@user.email)
+				RegistrationJob.perform_async(@user.email)
 				}.to change{ ActionMailer::Base.deliveries.size }.by(1)
 			end
 		end
