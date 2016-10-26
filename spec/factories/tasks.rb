@@ -3,6 +3,6 @@ FactoryGirl.define do
 		url "www.google.com"
 		words "john doe"
 		email "johndoe@hotmail.com"
-		completed "true"
+		status 1
 	end
 end

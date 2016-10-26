@@ -5,9 +5,11 @@ describe Task do
   it { should have_db_column(:url).of_type(:string) }
   it {should have_db_column(:words).of_type(:string)}
   it {should have_db_column(:email).of_type(:string)}
-  it {should have_db_column(:completed).of_type(:boolean)}
+  it {should have_db_column(:status).of_type(:integer)}
   it {should have_db_column(:created_at).of_type(:datetime)}
   it {should have_db_column(:updated_at).of_type(:datetime)}
+  it {should have_db_column(:deleted_at).of_type(:datetime)}
+  it {should have_db_index(:deleted_at)}
 
   before :each do
     @task = FactoryGirl.create(:task)
@@ -34,18 +36,40 @@ describe Task do
     end
   end
 
-  describe ".task_status_change" do
-    it "returns true if task is completed" do
-      expect(@task.task_status_change).to be true
+  describe ".inactive!" do
+    it "changes tasks status to inactive" do
+      @task.inactive!
+      expect(@task.status).to be 3
     end
   end
-
-
+  
+  describe ".active!" do
+    it "changes tasks status to active" do
+      @task.status = 3
+      @task.active!
+      expect(@task.status).to be 1
+    end
+  end
 
   describe ".add_http_to_url" do
     it "adds http to url if not present" do
       @task.url = "google.com"
       expect{@task.add_http_to_url}.to change(@task,:url).from("google.com").to("http://google.com")
+    end
+
+    it "adds http to url if url starts with www" do
+      @task.url = "www.google.com"
+      expect{@task.add_http_to_url}.to change(@task,:url).from("www.google.com").to("http://www.google.com")
+    end
+
+    it "validates url if url starts with http" do
+      @task.url = "http://www.google.com"
+      expect{@task.add_http_to_url}.not_to change(@task,:url)
+    end
+
+    it "validates url if url starts with https" do
+      @task.url = "https://www.google.com"
+      expect{@task.add_http_to_url}.not_to change(@task,:url)
     end
   end
   

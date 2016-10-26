@@ -11,13 +11,13 @@
   </thead>
   <tbody>
     <% @tasks.each do |task| %>
-    <tr>
+    <tr id="task_row">
       <th scope="row"><%= task.id %></th>
-      <td><%= task.url %></td>
+      <td><%= link_to task.url,task_path(task),:method => :get %></td>
       <td><%= task.words %></td>
-      <td id="<%= task.id %>"><%=task.task_status%></td>
-      <td><%= button_to('Delete', task_path(task),:method => :delete) %></td>
-      <td><%= button_to('On',task_update_path(task),:method => :put,:class => 'task_completed',:id => 'toggle_button')%></td>
+      <td><%= task.status_name %></td>
+      <td><%= button_to('Delete', task_path(task),:method => :delete,:class =>'delete',:remote=> true) %></td>
+      <td><%= task.toggle_buttons %></td>
     </tr>
     <% end %>
   </tbody>
@@ -25,9 +25,3 @@
 <br/>
 <%= link_to 'New task', root_path, {class: "btn btn-lg btn-success"} %>
 <%= link_to('Sign out', destroy_user_session_path,class: "btn btn-lg btn-primary", :method => :delete) %>
-<script type="text/javascript">
-  $('#toggle_button').click(function(){
-     var $this=$(this);
-     $this.val("Off");
- });
-</script>

@@ -2,8 +2,7 @@
 	<div class="text-center" style="padding-top:100px">
 
 		<font color="white"> 
-			<h1>Your task tracking is now active!</h1>
-			<h2>You'll get notification as soon as Fetch detects a change!</h2>
+			<h1>Task details</h1>
 		</font>
 		<div class="row">
 			<div class="col-md-3">
@@ -28,11 +27,12 @@
 						</p>
 
 						<p>
-							<strong>Completed:</strong>
-							<%= @task.completed %>
+							<strong>Status:</strong>
+							<%= @task.status_name %>
 						</p>
 						<%= link_to 'New Notification', root_path, {class: "btn btn-lg btn-success"} %>
-						<%= link_to 'Tasks', tasks_path,{class: "btn btn-lg btn-success"} %>
+						<%= link_to 'Dashboard', tasks_path,{class: "btn btn-lg btn-success"} %>
+						<%= link_to 'Edit', edit_task_path,{class: "btn btn-lg btn-info"} %>
 					</div>
 				</div>
 			</div>

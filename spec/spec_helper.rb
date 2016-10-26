@@ -11,6 +11,7 @@ end
   require 'rubygems'
   require 'sidekiq/testing'
   require 'capybara/rspec'
+  require 'sucker_punch/testing/inline'
 
   RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

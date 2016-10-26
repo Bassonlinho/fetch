@@ -18,6 +18,15 @@ gem 'whenever', :require => false
 
 gem 'devise'
 
+gem 'activeadmin', github: 'activeadmin'
+
+
+gem 'draper'
+
+gem "paranoia", "~> 2.0"
+
+gem 'sucker_punch'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 
