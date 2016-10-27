@@ -1,0 +1,103 @@
+.title-text {
+  margin-top: 20px;
+  color: $color4;
+  font-family: 'Raleway', sans-serif;
+
+  &.bottom {
+    margin-top: 60px;
+  }
+
+  .title {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  .title .titlelight {
+    font-size: 32px;
+    font-weight: 400;
+    font-family: 'Lato', sans-serif !important;
+  }
+
+  .title .subtitlelight {
+    font-size: 24px;
+    font-weight: 400;
+    font-family: 'Lato', sans-serif !important;
+  }
+
+  .title .subtitletiny {
+    font-size: 12px;
+    font-weight: 400;
+    color: $color4;
+    font-family: 'Lato', sans-serif !important;
+  }
+}
+
+.flash-message {
+  margin-top: 30px;
+  background-color: $color12;
+  opacity: 0.7;
+  padding: 20px 0;
+
+  .flashmsg {
+    font-size: 20px;
+    color: $color1;
+  }
+}
+
+.login-panel {
+  margin-top: 10%;
+  border-radius: 4px !important;
+  padding: 20px;
+  width: 100%;
+
+  &.top {
+    margin-top: 5%;
+  }
+
+  &:focus {
+    border-radius: 20px !important;
+    padding: 20px;
+    width: 400px;
+  }
+
+  &.active {
+    border-radius: 20px !important;
+    padding: 20px;
+    width: 400px;
+  }
+}
+
+ .inputgroup {
+    margin-bottom: 20px;
+
+    .inputfield {
+      border-radius: 5px;
+      border: solid thin $color8;
+      background-color: $color4;
+      padding: 10px;
+      height: 50px;
+      width: 100%;
+    }
+  }
+
+  .loginbtn {
+    background-color: $color2;
+    color: $color4;
+    float: right;
+
+    &.center {
+      float: none;
+    }
+
+    &:hover {
+      background-color: $color2;
+      color: $color4 !important;
+    }
+
+    &:focus {
+      background-color: $color2;
+      color: $color4 !important;
+    }
+  }
+
+

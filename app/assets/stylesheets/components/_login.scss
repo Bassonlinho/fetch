@@ -1,0 +1,229 @@
+.sign-form{
+  margin:0 auto;
+  text-align:center; 
+
+  .title {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 50px 0;
+    color: $color4;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .title .titlelight {
+    font-size: 32px;
+    font-weight: 400;
+    color: $color4;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  >.signbox{
+    padding-top: 20px;
+    margin: 0 auto;
+    background-color:white;
+    @include border-radius(4px);
+    border:solid 1px $color13;
+    width: 400px;
+    padding-left:40px;
+  }
+
+  >.signbox.-newposition{
+    width: 600px;
+    padding-left:50px;
+  }
+
+  >.signbox>.description{
+    text-align:left;
+    color: $color7 !important;
+    font-size: 10px;
+    padding-right:40px;
+    padding-bottom:30px;
+    margin-top: -20px;
+    font-family: 'Lato', sans-serif !important;
+  }
+
+  >.signbox>.registration{
+    color: $color7;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif !important;
+    float:left;
+    margin:5px 0;
+  }
+
+  >.signbox>.check{
+    text-align:left;
+    padding: 15px 0;
+    position:relative;
+  } 
+
+  >.signbox>.check>.checkbox{
+    display: inline;
+    opacity: 0;
+    z-index: 1000;
+  }
+
+  >.signbox>.check>.label{
+    display: inline;
+    color:$color8;
+    font-size: 12px;
+    font-family: 'Lato', sans-serif !important;
+    padding-left: 10px;
+  }
+
+  >.signbox>.check>.label:before{
+    font-family: "FontAwesome";
+    content: "\f096";
+    letter-spacing: 10px;
+    font-size: 20px;
+    color: $color8;
+    position:absolute;
+    padding-top: 5px;
+    left:0;
+  }
+
+  >.signbox>.check>.checkbox:checked + .label:before{
+    font-family: "FontAwesome";
+    content: "\f046";
+    letter-spacing: 5px;
+  }
+  
+  >.signbox>.button{
+    display: block;
+    width: 90%;
+    color:white;
+    background-color:$color2;
+    padding: 0;
+    margin-bottom:25px;
+    height: 35px;
+    @include border-radius(4px);
+    box-shadow:none;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 18px;
+    border:none;
+  }
+
+  >.signbox>.button:hover{
+    background-color:$color2;
+    transition: 0.2s;
+  }
+  >.signbox>.button:focus{
+    outline: none;
+    background-color:$color2;    
+  }
+
+  >.signbox>.forgotpass{
+    text-align:left; 
+    padding-bottom:15px;
+    margin-top:-15px;
+  }
+
+  >.signbox>.forgotpass>.link{
+    color: $color8;
+    font-size: 12px;
+    font-family: 'Lato', sans-serif !important;
+    text-align:left;
+  }
+
+  >.signbox>.forgotpass>.link:hover{
+    border-bottom: none !important;
+    transition: 0.5s;
+  }
+
+  >.signbox>.addquestion{
+    font-family: 'Lato', sans-serif !important;
+    color: white;
+    background-color: $color4;
+    border:none;
+    box-shadow:none;
+    padding:10px 15px;
+    @include border-radius(4px);
+    margin-bottom:30px;
+    margin-top: 5px;
+    float:left;
+  }
+
+  >.signbox>.addquestion:hover{
+    background-color: $color4;
+    transition: 0.2s;
+  }
+
+  >.signbox>.addquestion:focus{
+    outline: none;
+    background-color:$color4;
+  }
+
+  >.signbox>.drag{
+    float:right;
+    font-size: 10px;
+    font-family: 'Lato', sans-serif !important;
+    margin-right: 60px;
+    padding-top:0;
+  }
+
+  >.below{
+    padding-top:10px;
+  }
+
+  >.below{
+    color: $color4;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 14px;
+
+    >.headline {
+     font-size: 18px; 
+    }
+
+    >.link {
+     font-size: 18px;
+     color: $color4;
+
+     &:hover {
+      color: $color4;
+      text-decoration: none;
+     } 
+    }
+  }
+}
+
+.input-group{
+  width:89%;
+  >.label{
+    display: block;
+    font-size: 14px;
+    color: $color8;
+    z-index: 200;
+    text-align:left;
+    font-family: 'Lato', sans-serif !important;
+    padding:0;
+    margin-bottom: 5px;
+  }
+  >.label>.public{
+    font-family: 'Lato', sans-serif !important;
+  }
+  >.label>.required{
+    color: $color8;
+    font-size: 10px;
+    font-family: 'Lato', sans-serif !important;
+    }
+  >.field,
+  >.closing>.field{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 30px;
+    border:solid 1px $color13;
+    padding: 5px;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif !important;
+  }
+  
+  >.field.question,
+  >.closing>.field.question{
+    margin: 5px 0;
+    font-family: 'Lato', sans-serif !important;   
+  }
+  >.field:focus,>.closing>.field:focus{
+    border:2px solid $color2;
+    outline:none;   
+  }
+
+}

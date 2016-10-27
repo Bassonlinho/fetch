@@ -1,0 +1,124 @@
+.navigation {
+  background-color: $color1;
+  margin-bottom: 0px !important;
+}
+
+.navbar-brand {
+  color: $color4;
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+
+  .fetch {
+    font-weight: 400;
+  }
+
+  &:hover {
+    color: $color4;
+  }
+
+  &:focus {
+    color: $color4;
+  }
+
+  &.active {
+    color: $color4;
+  }
+}
+
+.button-header {
+    margin-top: 7px;
+    background-color: $color5;
+    color: $color6;
+
+  .link {
+    color: $color6;
+
+    &:hover {
+      text-decoration: none;
+      color: $color4 !important;
+     }
+
+    &:focus {
+      text-decoration: none;
+      color: $color4 !important;
+    }
+
+    &.active {
+      text-decoration: none;
+      color: $color4 !important;
+    }
+  }
+
+  &:hover {
+      text-decoration: none;
+      color: $color4 !important;
+      background-color: $color2 !important;
+     }
+
+    &:focus {
+      text-decoration: none;
+      color: $color4 !important;
+      background-color: $color2 !important;
+    }
+
+    &.active {
+      text-decoration: none;
+      color: $color4 !important;
+      background-color: $color2 !important;
+    }
+}
+
+.subheader {
+  background-color: $color3;
+  border-bottom: solid 1px lightgrey !important;
+  padding: 15px 0;
+  margin-bottom: 50px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.flex-center{
+  align-items: center;
+}
+
+.active-text  {
+  .activenum {
+    font-size: 16px;
+    color: $color7;
+  }
+
+  .taskicon {
+    color: $color8;
+    margin-right: 5px;
+  }
+}
+
+.button-task {
+  background-color: $color2;
+  color: $color4;
+  width: 130px;
+  padding: 10px 0 !important;
+  font-weight: bold !important;
+
+  &:hover {
+    color: $color4 !important;
+  }
+
+   &:focus {
+    color: $color4 !important;
+  }
+
+   &.active {
+    color: $color4 !important;
+  }
+}
