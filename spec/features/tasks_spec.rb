@@ -9,22 +9,38 @@ describe "Tasks" do
   end
 
   describe "POST #create" do
-    it "creates a task" do
+    it "when user is logged in" do
+      login_as(@user, :scope => :user)
+      visit tasks_path
+      click_button("+ New Task")
+      fill_in "task_url", :with => @task.url
+      fill_in "task_words", :with => @task.words
+      fill_in "task_email", :with => @task.words
+      click_button("Create task")
+      expect(page).to have_content("www.google.com")
+    end
+    it "when user not logged in" do
       visit root_path
-      save_and_open_page
       fill_in "task_url", :with => @task.url
       fill_in "task_words", :with => @task.words
       fill_in "task_email", :with => @task.email
-      
-      expect{find('.btn-success').click}.to change(Task,:count).by(1)
+      click_button("Submit tracking!")
+      expect(page).to have_content("Task was successfully created!")
     end
   end
+
+
 
   describe "GET #index" do
     it "shows all tasks created by owner user" do
       login_as(@user, :scope => :user)
       visit tasks_path
-      expect(page).to have_content("List of your tasks:")
+      expect(page).to have_content("Time")
+      expect(page).to have_content("URL")
+      expect(page).to have_content("Keywords")
+      expect(page).to have_content("Status")
+      expect(page).to have_content("On/Off")
+      expect(page).to have_content("Delete")
     end
   end
 
@@ -33,8 +49,7 @@ describe "Tasks" do
     it "changes tasks status to inactive" do
       login_as(@user, :scope => :user)
       visit tasks_path
-      save_and_open_page
-      find('.task_inactive').click
+      click_button("Off")
       expect(page).to have_content("Your task is now inactive!")
     end 
   end
@@ -43,8 +58,7 @@ describe "Tasks" do
     it "changes tasks status to active" do
       login_as(@user, :scope => :user)
       visit tasks_path
-      save_and_open_page
-      find('.task_active').click
+      click_button("On")
       expect(page).to have_content("Your task is now active!")
     end 
   end  
@@ -53,7 +67,6 @@ describe "Tasks" do
     it "shows task with certain id" do
       login_as(@user, :scope => :user)
       visit task_path(@task)
-      save_and_open_page
       expect(page).to have_content("Task details")
     end
   end
@@ -62,7 +75,6 @@ describe "Tasks" do
     it "deletes task from record" do
       login_as(@user, :scope => :user)
       visit tasks_path
-      save_and_open_page
       first('.delete').click
       expect(page).to have_content("Task was successfully destroyed.")
     end

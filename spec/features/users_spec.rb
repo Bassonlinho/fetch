@@ -9,12 +9,11 @@ describe "Users" do
   describe "GET registrations#new" do
     it "creates a new user and sends welcome email" do
       visit new_user_registration_path
-      save_and_open_page
       fill_in "user_email", :with => "markking@hotmail.com"
       fill_in "user_password",:with => "markisking"
       fill_in "user_password_confirmation",:with => "markisking"
       expect {
-        find('.btn-primary').click    
+        find('.button').click    
         }.to change{ ActionMailer::Base.deliveries.size}.by(1)
         expect(page).to have_content("Welcome! You have signed up successfully.")
       end
@@ -24,8 +23,7 @@ describe "Users" do
       it "destroy current user session" do
         login_as(@user, :scope => :user)
         visit tasks_path
-        save_and_open_page
-        find('.btn-primary').click
+        find('#logout').click
         expect(page).to have_content("Signed out successfully.")
       end
     end
@@ -35,7 +33,7 @@ describe "Users" do
         visit new_user_session_path
         fill_in "user_email", :with => @user.email
         fill_in "user_password", :with => @user.password  
-        find('.btn-primary').click
+        find('.button').click
         expect(page).to have_content("Signed in successfully.")
       end
     end
