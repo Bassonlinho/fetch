@@ -1,73 +1,730 @@
+/* purple */
+/* blue */
+/* grey */
+/* white */
+/* dark purple */
+/* light purple */
+/* dark grey */
+/* lightgrey */
+/* lighter purple */
+/* light red */
+/* light blue */
+/* line 1, ../sass/components/_helpers.scss */
+.no-list-style {
+  list-style-type: none !important;
+}
+
+/* line 5, ../sass/components/_helpers.scss */
+.inline {
+  display: inline;
+}
+
+/* line 9, ../sass/components/_helpers.scss */
+.no-padding {
+  padding: 0px !important;
+}
+
+/* line 13, ../sass/components/_helpers.scss */
+.no-margin {
+  margin: 0px !important;
+}
+
+/* line 1, ../sass/components/_main.scss */
 body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-family: 'Lato', sans-serif !important;
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+/* line 5, ../sass/components/_main.scss */
+.grey {
+  background-color: #F4F8F9 !important;
 }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
+/* line 9, ../sass/components/_main.scss */
+.purple {
+  background-color: #6D60B0;
 }
 
-a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
+/* line 1, ../sass/components/_home.scss */
+.title-text {
+  margin-top: 20px;
+  color: #ffffff;
+  font-family: 'Raleway', sans-serif;
+}
+/* line 6, ../sass/components/_home.scss */
+.title-text.bottom {
+  margin-top: 60px;
+}
+/* line 10, ../sass/components/_home.scss */
+.title-text .title {
+  font-size: 32px;
+  font-weight: 600;
+}
+/* line 15, ../sass/components/_home.scss */
+.title-text .title .titlelight {
+  font-size: 32px;
+  font-weight: 400;
+  font-family: 'Lato', sans-serif !important;
+}
+/* line 21, ../sass/components/_home.scss */
+.title-text .title .subtitlelight {
+  font-size: 24px;
+  font-weight: 400;
+  font-family: 'Lato', sans-serif !important;
+}
+/* line 27, ../sass/components/_home.scss */
+.title-text .title .subtitletiny {
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+  font-family: 'Lato', sans-serif !important;
 }
 
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
+/* line 35, ../sass/components/_home.scss */
+.flash-message {
+  margin-top: 30px;
+  background-color: #c4e9f4;
+  opacity: 0.7;
+  padding: 20px 0;
+}
+/* line 41, ../sass/components/_home.scss */
+.flash-message .flashmsg {
+  font-size: 20px;
+  color: #6D60B0;
 }
 
-.notice {
-  color: green;
+/* line 47, ../sass/components/_home.scss */
+.login-panel {
+  margin-top: 10%;
+  border-radius: 4px !important;
+  padding: 20px;
+  width: 100%;
+}
+/* line 53, ../sass/components/_home.scss */
+.login-panel.top {
+  margin-top: 5%;
+}
+/* line 57, ../sass/components/_home.scss */
+.login-panel:focus {
+  border-radius: 20px !important;
+  padding: 20px;
+  width: 400px;
+}
+/* line 63, ../sass/components/_home.scss */
+.login-panel.active {
+  border-radius: 20px !important;
+  padding: 20px;
+  width: 400px;
 }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
+/* line 70, ../sass/components/_home.scss */
+.inputgroup {
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+}
+/* line 73, ../sass/components/_home.scss */
+.inputgroup .inputfield {
+  border-radius: 5px;
+  border: solid thin #a8a8a8;
+  background-color: #ffffff;
+  padding: 10px;
+  height: 50px;
+  width: 100%;
+}
 
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
-  }
+/* line 83, ../sass/components/_home.scss */
+.loginbtn {
+  background-color: #3DB8DB;
+  color: #ffffff;
+  float: right;
+}
+/* line 88, ../sass/components/_home.scss */
+.loginbtn.center {
+  float: none;
+}
+/* line 92, ../sass/components/_home.scss */
+.loginbtn:hover {
+  background-color: #3DB8DB;
+  color: #ffffff !important;
+}
+/* line 97, ../sass/components/_home.scss */
+.loginbtn:focus {
+  background-color: #3DB8DB;
+  color: #ffffff !important;
+}
 
-  ul li {
-    font-size: 12px;
-    list-style: square;
+/* line 1, ../sass/components/_login.scss */
+.sign-form {
+  margin: 0 auto;
+  text-align: center;
+}
+/* line 5, ../sass/components/_login.scss */
+.sign-form .title {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 50px 0;
+  color: #ffffff;
+  font-family: 'Raleway', sans-serif;
+}
+/* line 13, ../sass/components/_login.scss */
+.sign-form .title .titlelight {
+  font-size: 32px;
+  font-weight: 400;
+  color: #ffffff;
+  font-family: 'Raleway', sans-serif;
+}
+/* line 20, ../sass/components/_login.scss */
+.sign-form > .signbox {
+  padding-top: 20px;
+  margin: 0 auto;
+  background-color: white;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  border: solid 1px #d9d9d9;
+  width: 400px;
+  padding-left: 40px;
+}
+/* line 30, ../sass/components/_login.scss */
+.sign-form > .signbox.-newposition {
+  width: 600px;
+  padding-left: 50px;
+}
+/* line 35, ../sass/components/_login.scss */
+.sign-form > .signbox > .description {
+  text-align: left;
+  color: #444 !important;
+  font-size: 10px;
+  padding-right: 40px;
+  padding-bottom: 30px;
+  margin-top: -20px;
+  font-family: 'Lato', sans-serif !important;
+}
+/* line 45, ../sass/components/_login.scss */
+.sign-form > .signbox > .registration {
+  color: #444;
+  font-size: 14px;
+  font-family: 'Lato', sans-serif !important;
+  float: left;
+  margin: 5px 0;
+}
+/* line 53, ../sass/components/_login.scss */
+.sign-form > .signbox > .check {
+  text-align: left;
+  padding: 15px 0;
+  position: relative;
+}
+/* line 59, ../sass/components/_login.scss */
+.sign-form > .signbox > .check > .checkbox {
+  display: inline;
+  opacity: 0;
+  z-index: 1000;
+}
+/* line 65, ../sass/components/_login.scss */
+.sign-form > .signbox > .check > .label {
+  display: inline;
+  color: #a8a8a8;
+  font-size: 12px;
+  font-family: 'Lato', sans-serif !important;
+  padding-left: 10px;
+}
+/* line 73, ../sass/components/_login.scss */
+.sign-form > .signbox > .check > .label:before {
+  font-family: "FontAwesome";
+  content: "\f096";
+  letter-spacing: 10px;
+  font-size: 20px;
+  color: #a8a8a8;
+  position: absolute;
+  padding-top: 5px;
+  left: 0;
+}
+/* line 84, ../sass/components/_login.scss */
+.sign-form > .signbox > .check > .checkbox:checked + .label:before {
+  font-family: "FontAwesome";
+  content: "\f046";
+  letter-spacing: 5px;
+}
+/* line 90, ../sass/components/_login.scss */
+.sign-form > .signbox > .button {
+  display: block;
+  width: 90%;
+  color: white;
+  background-color: #3DB8DB;
+  padding: 0;
+  margin-bottom: 25px;
+  height: 35px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  box-shadow: none;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 18px;
+  border: none;
+}
+/* line 105, ../sass/components/_login.scss */
+.sign-form > .signbox > .button:hover {
+  background-color: #3DB8DB;
+  transition: 0.2s;
+}
+/* line 109, ../sass/components/_login.scss */
+.sign-form > .signbox > .button:focus {
+  outline: none;
+  background-color: #3DB8DB;
+}
+/* line 114, ../sass/components/_login.scss */
+.sign-form > .signbox > .forgotpass {
+  text-align: left;
+  padding-bottom: 15px;
+  margin-top: -15px;
+}
+/* line 120, ../sass/components/_login.scss */
+.sign-form > .signbox > .forgotpass > .link {
+  color: #a8a8a8;
+  font-size: 12px;
+  font-family: 'Lato', sans-serif !important;
+  text-align: left;
+}
+/* line 127, ../sass/components/_login.scss */
+.sign-form > .signbox > .forgotpass > .link:hover {
+  border-bottom: none !important;
+  transition: 0.5s;
+}
+/* line 132, ../sass/components/_login.scss */
+.sign-form > .signbox > .addquestion {
+  font-family: 'Lato', sans-serif !important;
+  color: white;
+  background-color: #ffffff;
+  border: none;
+  box-shadow: none;
+  padding: 10px 15px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  margin-top: 5px;
+  float: left;
+}
+/* line 145, ../sass/components/_login.scss */
+.sign-form > .signbox > .addquestion:hover {
+  background-color: #ffffff;
+  transition: 0.2s;
+}
+/* line 150, ../sass/components/_login.scss */
+.sign-form > .signbox > .addquestion:focus {
+  outline: none;
+  background-color: #ffffff;
+}
+/* line 155, ../sass/components/_login.scss */
+.sign-form > .signbox > .drag {
+  float: right;
+  font-size: 10px;
+  font-family: 'Lato', sans-serif !important;
+  margin-right: 60px;
+  padding-top: 0;
+}
+/* line 163, ../sass/components/_login.scss */
+.sign-form > .below {
+  padding-top: 10px;
+}
+/* line 167, ../sass/components/_login.scss */
+.sign-form > .below {
+  color: #ffffff;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 14px;
+}
+/* line 172, ../sass/components/_login.scss */
+.sign-form > .below > .headline {
+  font-size: 18px;
+}
+/* line 176, ../sass/components/_login.scss */
+.sign-form > .below > .link {
+  font-size: 18px;
+  color: #ffffff;
+}
+/* line 180, ../sass/components/_login.scss */
+.sign-form > .below > .link:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* line 188, ../sass/components/_login.scss */
+.input-group {
+  width: 89%;
+}
+/* line 190, ../sass/components/_login.scss */
+.input-group > .label {
+  display: block;
+  font-size: 14px;
+  color: #a8a8a8;
+  z-index: 200;
+  text-align: left;
+  font-family: 'Lato', sans-serif !important;
+  padding: 0;
+  margin-bottom: 5px;
+}
+/* line 200, ../sass/components/_login.scss */
+.input-group > .label > .public {
+  font-family: 'Lato', sans-serif !important;
+}
+/* line 203, ../sass/components/_login.scss */
+.input-group > .label > .required {
+  color: #a8a8a8;
+  font-size: 10px;
+  font-family: 'Lato', sans-serif !important;
+}
+/* line 208, ../sass/components/_login.scss */
+.input-group > .field,
+.input-group > .closing > .field {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 30px;
+  border: solid 1px #d9d9d9;
+  padding: 5px;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif !important;
+}
+/* line 219, ../sass/components/_login.scss */
+.input-group > .field.question,
+.input-group > .closing > .field.question {
+  margin: 5px 0;
+  font-family: 'Lato', sans-serif !important;
+}
+/* line 224, ../sass/components/_login.scss */
+.input-group > .field:focus, .input-group > .closing > .field:focus {
+  border: 2px solid #3DB8DB;
+  outline: none;
+}
+
+/* line 1, ../sass/components/_header.scss */
+.navigation {
+  background-color: #6D60B0;
+  margin-bottom: 0px !important;
+}
+
+/* line 6, ../sass/components/_header.scss */
+.navbar-brand {
+  color: #ffffff;
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+}
+/* line 11, ../sass/components/_header.scss */
+.navbar-brand .fetch {
+  font-weight: 400;
+}
+/* line 15, ../sass/components/_header.scss */
+.navbar-brand:hover {
+  color: #ffffff;
+}
+/* line 19, ../sass/components/_header.scss */
+.navbar-brand:focus {
+  color: #ffffff;
+}
+/* line 23, ../sass/components/_header.scss */
+.navbar-brand.active {
+  color: #ffffff;
+}
+
+/* line 28, ../sass/components/_header.scss */
+.button-header {
+  margin-top: 7px;
+  background-color: #574D8D;
+  color: #ACA7C7;
+}
+/* line 33, ../sass/components/_header.scss */
+.button-header .link {
+  color: #ACA7C7;
+}
+/* line 36, ../sass/components/_header.scss */
+.button-header .link:hover {
+  text-decoration: none;
+  color: #ffffff !important;
+}
+/* line 41, ../sass/components/_header.scss */
+.button-header .link:focus {
+  text-decoration: none;
+  color: #ffffff !important;
+}
+/* line 46, ../sass/components/_header.scss */
+.button-header .link.active {
+  text-decoration: none;
+  color: #ffffff !important;
+}
+/* line 52, ../sass/components/_header.scss */
+.button-header:hover {
+  text-decoration: none;
+  color: #ffffff !important;
+  background-color: #3DB8DB !important;
+}
+/* line 58, ../sass/components/_header.scss */
+.button-header:focus {
+  text-decoration: none;
+  color: #ffffff !important;
+  background-color: #3DB8DB !important;
+}
+/* line 64, ../sass/components/_header.scss */
+.button-header.active {
+  text-decoration: none;
+  color: #ffffff !important;
+  background-color: #3DB8DB !important;
+}
+
+/* line 71, ../sass/components/_header.scss */
+.subheader {
+  background-color: #F4F8F9;
+  border-bottom: solid 1px lightgrey !important;
+  padding: 15px 0;
+  margin-bottom: 50px;
+}
+
+/* line 78, ../sass/components/_header.scss */
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* line 84, ../sass/components/_header.scss */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* line 90, ../sass/components/_header.scss */
+.flex-center {
+  align-items: center;
+}
+
+/* line 95, ../sass/components/_header.scss */
+.active-text .activenum {
+  font-size: 16px;
+  color: #444;
+}
+/* line 100, ../sass/components/_header.scss */
+.active-text .taskicon {
+  color: #a8a8a8;
+  margin-right: 5px;
+}
+
+/* line 106, ../sass/components/_header.scss */
+.button-task {
+  background-color: #3DB8DB;
+  color: #ffffff;
+  width: 130px;
+  padding: 10px 0 !important;
+  font-weight: bold !important;
+}
+/* line 113, ../sass/components/_header.scss */
+.button-task:hover {
+  color: #ffffff !important;
+}
+/* line 117, ../sass/components/_header.scss */
+.button-task:focus {
+  color: #ffffff !important;
+}
+/* line 121, ../sass/components/_header.scss */
+.button-task.active {
+  color: #ffffff !important;
+}
+
+/* line 1, ../sass/components/_tasks.scss */
+.task-header {
+  height: 30px;
+  width: 60%;
+  padding: 0px 50px;
+}
+@media screen and (max-width: 1024px) {
+  /* line 1, ../sass/components/_tasks.scss */
+  .task-header {
+    width: 100%;
+    padding: 0px 20px;
   }
+}
+/* line 11, ../sass/components/_tasks.scss */
+.task-header .headeritem {
+  color: #a8a8a8;
+}
+
+/* line 16, ../sass/components/_tasks.scss */
+.task-item {
+  height: 70px;
+  margin: 10px 0px;
+  width: 60%;
+  padding-top: 23px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: solid thin #d9d9d9;
+}
+@media screen and (max-width: 1024px) {
+  /* line 16, ../sass/components/_tasks.scss */
+  .task-item {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+/* line 31, ../sass/components/_tasks.scss */
+.task-item.-inactive {
+  opacity: 0.5 !important;
+  background-color: #dbdfe0;
+}
+/* line 36, ../sass/components/_tasks.scss */
+.task-item.-white {
+  background-color: #ffffff;
+}
+/* line 40, ../sass/components/_tasks.scss */
+.task-item .keyword {
+  color: #6D60B0;
+  background-color: #e6e4ee;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+/* line 50, ../sass/components/_tasks.scss */
+.task-item .delete {
+  padding: 3px 8px;
+  border-radius: 20px;
+  background-color: #fcdede;
+  color: red;
+  margin-left: 10px;
+  font-size: 12px;
+}
+/* line 58, ../sass/components/_tasks.scss */
+.task-item .delete:hover {
+  background-color: #fcdede;
+  color: red;
+}
+/* line 63, ../sass/components/_tasks.scss */
+.task-item .delete:focus {
+  background-color: #fcdede;
+  color: red;
+}
+/* line 68, ../sass/components/_tasks.scss */
+.task-item .delete.active {
+  background-color: #fcdede;
+  color: red;
+}
+
+/* line 75, ../sass/components/_tasks.scss */
+.modal-header {
+  background-color: #6D60B0;
+}
+/* line 78, ../sass/components/_tasks.scss */
+.modal-header .modal-title {
+  color: #ffffff;
+}
+
+/* line 83, ../sass/components/_tasks.scss */
+.modal-footer {
+  border-top: none !important;
+}
+
+/* line 87, ../sass/components/_tasks.scss */
+.task-input {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  height: 50px;
+  width: 70%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: none;
+}
+
+/* line 1, ../sass/components/_toggle.scss */
+.onoffswitch {
+  position: relative;
+  width: 60px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* line 6, ../sass/components/_toggle.scss */
+.onoffswitch-checkbox {
+  display: none;
+}
+
+/* line 10, ../sass/components/_toggle.scss */
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+/* line 15, ../sass/components/_toggle.scss */
+.onoffswitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  -moz-transition: margin 0.3s ease-in 0s;
+  -webkit-transition: margin 0.3s ease-in 0s;
+  -o-transition: margin 0.3s ease-in 0s;
+  transition: margin 0.3s ease-in 0s;
+}
+
+/* line 21, ../sass/components/_toggle.scss */
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  font-size: 14px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 27, ../sass/components/_toggle.scss */
+.onoffswitch-inner:before {
+  content: "ON";
+  padding-left: 7px;
+  background-color: #66CD00;
+  color: #FFFFFF;
+}
+
+/* line 33, ../sass/components/_toggle.scss */
+.onoffswitch-inner:after {
+  content: "OFF";
+  padding-right: 7px;
+  background-color: #d9d9d9;
+  color: #FFFFFF;
+  text-align: right;
+}
+
+/* line 40, ../sass/components/_toggle.scss */
+.onoffswitch-switch {
+  display: block;
+  width: 18px;
+  margin: 6px;
+  right: 30px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  -moz-transition: all 0.3s ease-in 0s;
+  -webkit-transition: all 0.3s ease-in 0s;
+  -o-transition: all 0.3s ease-in 0s;
+  transition: all 0.3s ease-in 0s;
+}
+
+/* line 49, ../sass/components/_toggle.scss */
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+
+/* line 53, ../sass/components/_toggle.scss */
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px;
 }
