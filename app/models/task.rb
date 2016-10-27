@@ -23,7 +23,7 @@ class Task < ActiveRecord::Base
 	
 
 	def status_name
-		STATUSES[status]
+		#STATUSES[status]
 	end
 
 	def active!
