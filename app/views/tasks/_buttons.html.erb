@@ -1,6 +1,6 @@
  <% if !user_signed_in? %>
-  <%= link_to('Login', new_user_session_path,class: "btn btn-lg btn-primary") %> 
-  <%= link_to('Register', new_user_registration_path,class: "btn btn-lg btn-primary") %>
+  <%= link_to('Login', new_user_session_path,class: "btn btn-md button-header") %> 
+  <%= link_to('Register', new_user_registration_path,class: "btn btn-md button-header") %>
  <% else %>
-  <%= link_to('Dashboard',tasks_path,class:"btn btn-lg btn-primary") %>
+  <%= link_to('Dashboard',tasks_path,class:"btn btn-md button-header") %>
  <% end %>

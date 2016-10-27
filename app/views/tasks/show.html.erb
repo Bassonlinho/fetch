@@ -1,9 +1,9 @@
-<body style="background-color:#419CD9">
-	<div class="text-center" style="padding-top:100px">
-
-		<font color="white"> 
-			<h1>Task details</h1>
-		</font>
+<body class="purple">
+        <div class="row title-text top">
+      <div class="col-sm-12 text-center title">
+        <span class="titlelight">Task details</span>
+      </div>
+    </div>
 		<div class="row">
 			<div class="col-md-3">
 			</div>
@@ -30,9 +30,8 @@
 							<strong>Status:</strong>
 							<%= @task.status_name %>
 						</p>
-						<%= link_to 'New Notification', root_path, {class: "btn btn-lg btn-success"} %>
-						<%= link_to 'Dashboard', tasks_path,{class: "btn btn-lg btn-success"} %>
-						<%= link_to 'Edit', edit_task_path,{class: "btn btn-lg btn-info"} %>
+						<%= link_to 'Dashboard', tasks_path,{class: "btn btn-md button-header"} %>
+						<%= link_to 'Edit', edit_task_path,{class: "btn btn-md button-header"} %>
 					</div>
 				</div>
 			</div>

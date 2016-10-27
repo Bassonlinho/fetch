@@ -9,6 +9,8 @@ class Task < ActiveRecord::Base
 		where("tasks.email =  ?", user.email)
 	}
 
+	scope :active, -> {where(:status => STATUS_ACTIVE)}
+
 	STATUS_ACTIVE = 1.freeze
 	STATUS_COMPLETED = 2.freeze
 	STATUS_INACTIVE = 3.freeze

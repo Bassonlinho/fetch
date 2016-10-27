@@ -1,5 +1,47 @@
-<body style="background-color:#419CD9">
-	<div class="text-center" style="padding-top:100px">
-		<%= render 'form' %>
+<%= form_for(@task,remote: true) do |f| %>
+<% if @task.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+	<ul>
+		<% @task.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<body class="purple">
+	<div class="row">
+		<div class="col-sm-12 text-center title-text">
+			<span class="title">Kolosek<span class="titlelight">Notify</span></span>
+		</div>
 	</div>
+	<div class="modal-header">
+		<h4 class="modal-title text-center" id="myModalLabel">Edit task</h4>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<div class="panel panel-default login-panel top">
+				<div class="panel-body">   
+					<div class="col-sm-12">
+						<div class="row inputgroup">
+							<%= f.text_field :url, type: "text", class: "inputfield", placeholder: 'Enter website URL, e.g. http://www.google.com', required: "true" %>
+						</div>
+						<div class="row inputgroup">
+							<%= f.text_field :words, type: "text", class: "inputfield", placeholder: 'Keywords (separated by a semicolon)', required: "true" %>
+						</div>
+						<div class="row inputgroup">
+							<%= f.text_field :email, type: "email", class: "inputfield", placeholder: 'Your e-mail address', required: "true" %>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 text-center">
+							<%= f.submit "Update task", :class => 'btn button-header' %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% end %>
 </body>
