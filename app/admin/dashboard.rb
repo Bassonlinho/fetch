@@ -24,7 +24,7 @@ ActiveAdmin.register_page "Dashboard" do
                         td task.email
                         td task.url
                         td task.words
-                        td task.status_name
+                        td task.status?
                     end
                 end
             end

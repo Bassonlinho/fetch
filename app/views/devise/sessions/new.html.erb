@@ -21,7 +21,7 @@
              </div>
              <% end %>
             <%= f.submit "Log in",class: "button" %>
-             <div class="forgotpass"><a href="#" class="link">Forgot your passsword?</a></div>
+             <div class="forgotpass"><%= link_to 'Forgot your password?', new_user_password_path, :class =>"link" %></div>
            </div>
          </div>
          <% end %>

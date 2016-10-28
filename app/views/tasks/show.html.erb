@@ -28,7 +28,7 @@
 
 						<p>
 							<strong>Status:</strong>
-							<%= @task.status_name %>
+							<%= @task.status? %>
 						</p>
 						<%= link_to 'Dashboard', tasks_path,{class: "btn btn-md button-header"} %>
 						<%= link_to 'Edit', edit_task_path,{class: "btn btn-md button-header"} %>

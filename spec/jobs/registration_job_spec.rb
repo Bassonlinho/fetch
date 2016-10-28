@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RegistrationJob, job: true do
+describe RegistrationWorker, job: true do
 	before :each do
 		@user = FactoryGirl.create(:user)
 	end
@@ -8,7 +8,7 @@ describe RegistrationJob, job: true do
 
 		it "delivers an email" do
 			expect {
-				RegistrationJob.perform_async(@user.email)
+				RegistrationWorker.perform_async(@user.email)
 				}.to change{ ActionMailer::Base.deliveries.size }.by(1)
 			end
 		end

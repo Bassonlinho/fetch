@@ -5,7 +5,7 @@ class Task < ActiveRecord::Base
 	validates :url, :words, :email, presence: true
 
 	
-	scope :email_check, -> (user) {
+	scope :match_email, -> (user) {
 		where("tasks.email =  ?", user.email)
 	}
 
@@ -22,8 +22,8 @@ class Task < ActiveRecord::Base
 	}
 	
 
-	def status_name
-		#STATUSES[status]
+	def status?
+		STATUSES[self.status]
 	end
 
 	def active!

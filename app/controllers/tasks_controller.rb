@@ -1,12 +1,12 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :destroy,:update,:active,:inactive]
   before_action :authenticate_user!,only: [:index,:show]
+  before_action :restrict_home_page, only:[:new]
 
   respond_to :js, :html
   
   def index
-    @tasks = Task.email_check(current_user).decorate
-    @t = Task.email_check(current_user)
+    @tasks = Task.match_email(current_user)
     @task = Task.new
   end
 
@@ -97,6 +97,9 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+  def restrict_home_page
+    redirect_to(tasks_path) if current_user
+  end
 
   def task_params
     params.require(:task).permit(:url, :words, :email, :status)

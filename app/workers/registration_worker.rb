@@ -1,4 +1,4 @@
-class RegistrationJob 
+class RegistrationWorker
   include SuckerPunch::Job
   
   def perform(email)

@@ -1,0 +1,20 @@
+<div class="task-item -white">
+  <div class="col-xs-2">
+    <span><%= task.created_at %></span>
+  </div>
+  <div class="col-xs-3">
+    <span><%= task.url %></span>
+  </div>
+  <div class="col-xs-3">
+    <span class="keyword"><%= task.words%></span>
+  </div>
+  <div class="col-xs-2">
+    <span><%= task.status? %></span>
+  </div>
+  <div class="col-xs-1">
+    <span><%= task.decorate.toggle_buttons %></span>
+  </div>
+  <div class="col-xs-1">
+    <%= link_to('X', task_path(task),:method => :delete,:class =>"btn delete") %>
+  </div>
+</div>

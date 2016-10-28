@@ -15,7 +15,6 @@ describe "Tasks" do
       click_button("+ New Task")
       fill_in "task_url", :with => @task.url
       fill_in "task_words", :with => @task.words
-      fill_in "task_email", :with => @task.words
       click_button("Create task")
       expect(page).to have_content("www.google.com")
     end

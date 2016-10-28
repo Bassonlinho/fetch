@@ -10,7 +10,7 @@
   </ul>
 </div>
 <% end %>    
-<div class="col-sm-12">
+<div class="col-sm-12" id="popup">
   <div class="row inputgroup">
     <%= f.text_field :url, type: "text", class: "inputfield", placeholder: 'Enter website URL, e.g. http://www.google.com', required: "true" %>
   </div>
@@ -18,7 +18,7 @@
     <%= f.text_field :words, type: "text", class: "inputfield", placeholder: 'Keywords (separated by a semicolon)', required: "true" %>
   </div>
   <div class="row inputgroup">
-    <%= f.text_field :email, type: "email", class: "inputfield", placeholder: 'Your e-mail address', required: "true" %>
+    <%= f.text_field :email, type: "email", class: "inputfield", placeholder: 'Your e-mail address', value: current_user.email , readonly: true%>
   </div>
   </div>
   <div class="modal-footer">

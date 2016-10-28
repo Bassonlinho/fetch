@@ -1,2 +1,4 @@
 $('#myModal').modal('hide');
-window.location.reload();
+$('#table').append('<%= j render(@task) %>');
+$('.active-text').load(document.URL +  ' .active-text');
+$('#popup').find('input, textarea').val('')
